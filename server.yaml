@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: testkube-deployment
+  labels:
+    app: testkube
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: testkube
+  template:
+    metadata:
+      labels:
+        app: testkube
+    spec:
+      containers:
+      - name: testkube
+        image: garag/testkube
+        ports:
+        - containerPort: 8080
+
+  
